@@ -8,7 +8,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  base: 'GSMA-test',
+  base: '/',
   description: description,
   // theme: 'api',
   /**
