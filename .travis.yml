@@ -8,7 +8,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: docs/.vuepress/dist
+  local_dir: docs/src/.vuepress/dist
   github_token: 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
   keep_history: true
   on:
