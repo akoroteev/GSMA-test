@@ -56,6 +56,10 @@ module.exports = {
         link: '/api/'
       },
       {
+        text: 'New api test',
+        link: '/api-test/'
+      },
+      {
         text: 'VuePress',
         link: 'https://v1.vuepress.vuejs.org'
       }
