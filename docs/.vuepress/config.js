@@ -1,3 +1,5 @@
+const { description } = require('../../package')
+
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -7,6 +9,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   base: '/GSMA-test/',
+  description: description,
   // theme: 'api',
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -41,8 +44,8 @@ module.exports = {
         link: '/examples/'
       },
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Page',
+        link: '/page/',
       },
       {
         text: 'Config',

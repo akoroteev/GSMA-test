@@ -44,8 +44,8 @@ module.exports = {
         link: '/examples/'
       },
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Page',
+        link: '/page/',
       },
       {
         text: 'Config',

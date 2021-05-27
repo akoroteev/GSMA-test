@@ -1,6 +1,12 @@
+---
+pageClass: zal00pa
+---
 # Introduction Test
 
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+## Document
+<IframeComponent/>
 
 ::: v-pre
 `{{ This will be displayed as-is }}`
@@ -97,18 +103,17 @@ npx create-vuepress-site [optionalDirectoryName]
 ## Tech diagrams with mermaids
 
 <mermaid>
-classDiagram
-Class01 <|-- AveryLongClass : Cool
-Class03 *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 --> C2 : Where am i?
-Class09 --* C3
-Class09 --|> Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-Class08 <--> C2: Cool label
+sequenceDiagram
+participant Merchant
+participant Mobile Money Provider
+participant Payer
+Merchant->>+Mobile Money Provider: POST /transactions/type/merchantpay
+Note right of Mobile Money Provider: (1) The merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is "pending".
+Mobile Money Provider-->>-Merchant: HTTP 202 (Request State Object)
+Mobile Money Provider->>+Payer: Obtain Customer Authorisation 
+Note right of Payer: (2) The Payer is requested by the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer<br>authorisation. 
+Payer-->>-Mobile Money Provider: (Authorised)
+Mobile Money Provider->>+Merchant: PUT (Callback URL) (transctions Object)
+Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
+Merchant-->>-Mobile Money Provider: HTTP 204
 </mermaid>
